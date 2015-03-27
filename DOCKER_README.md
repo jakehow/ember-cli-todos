@@ -50,7 +50,7 @@ echo '$(docker-machine env ember-cli-todos)' >> ~/.zshrc
 Checkout the ember-cli-todos project:
 
 ```shell
-cd ~/PROJECT_PATH
+cd ~/my_projects
 git clone ember-cli/ember-cli-todos
 cd ember-cli-todos
 ```
@@ -80,4 +80,22 @@ docker-compose ps
 Follow the logs
 ```shell
 docker-compose logs
+```
+
+Get the IP for your VM
+
+```shell
+docker-machine ip ember-cli-todos
+```
+
+You can now visit the app in your browser at http://{ip-from-previos-command}:4200
+
+Changes you make in `app/`, `config/`, `public/`, or `test/` will be automatically updated in the container.  
+
+Other changes will require a rebuild:
+
+```shell
+docker-compose stop todos
+docker-compose build todos
+docker-compose up -d
 ```
