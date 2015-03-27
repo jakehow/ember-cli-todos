@@ -1,0 +1,10 @@
+todos:
+  build: .
+  volumes:
+    - ./app:/opt/app/app
+    - ./config:/opt/app/config
+    - ./public:/opt/app/public
+    - ./tests:/opt/app/tests
+  ports:
+    - "4200:4200"
+    - "35729:35729"
